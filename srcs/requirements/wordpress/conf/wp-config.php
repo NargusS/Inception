@@ -85,6 +85,8 @@ define( 'WP_DEBUG', false );
 	
 define('WP_ALLOW_REPAIR', true);
 
+define('WP_HOME','https://127.0.0.1');
+define('WP_SITEURL','https://127.0.0.1');
 
 /* That's all, stop editing! Happy publishing. */
 

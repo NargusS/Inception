@@ -2,7 +2,6 @@ FROM debian:buster
 
 EXPOSE 3306
 
-COPY	./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 COPY tools/setupbdd.sql ./
 
 RUN apt-get update \
@@ -13,5 +12,7 @@ RUN apt-get update \
 	&& mkdir -p /var/run/mysqld \
 	&& chown -R mysql:mysql /var/run/mysqld \
 	&& chmod 777 /var/run/mysqld
+
+COPY	./conf/50-server.cnf /etc/mysql/mariadb.conf.d/
 
 CMD ["/usr/bin/mysqld_safe"]
