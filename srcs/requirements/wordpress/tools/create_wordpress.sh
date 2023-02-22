@@ -12,7 +12,7 @@ else
 	mv ./www.conf /etc/php/7.3/fpm/pool.d/
 
 	mv /var/www/wp-config.php /var/www/html/wordpress;
-	wp core install --path=/var/www/html/wordpress/ --url=https://localhost --title=Inception --admin_user=achane-l --admin_password=poire1234 --admin_email=achane-l@student.42.fr --allow-root
+	wp core install --path=/var/www/html/wordpress/ --url=https://localhost --title=Inception --admin_user=achane-l --admin_password=poire1234 --admin_email=achane-l@student.42.fr --skip-email  --allow-root
 fi
 
 exec "$@"

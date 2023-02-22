@@ -52,11 +52,11 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /Users/narguss/Desktop/test/achane-l/data/wordpress
+      device: /home/achane-l/data/wordpress
   db:
     name: db
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /Users/narguss/Desktop/test/achane-l/data/database
+      device: /home/achane-l/data/database

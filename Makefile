@@ -3,18 +3,18 @@ COMPOSE_FILE=./srcs/docker-compose.yml
 all: run
 
 run: 
-	@sudo mkdir -p /Users/narguss/Desktop/test/achane-l/data/wordpress
-	@sudo mkdir -p /Users/narguss/Desktop/test/achane-l/data/database
+	@sudo mkdir -p /home/achane-l/data/wordpress
+	@sudo mkdir -p /home/achane-l/data/database
 	@docker-compose -f $(COMPOSE_FILE) up --build
 
 up:
-	@sudo mkdir -p /home/llescure/data/wordpress
-	@sudo mkdir -p /home/llescure/data/mysql
+	@sudo mkdir -p /home/achane-l/data/wordpress
+	@sudo mkdir -p /home/achane-l/data/mysql
 	@docker-compose -f $(COMPOSE_FILE) up -d --build
 
 debug:
-	@sudo mkdir -p /home/llescure/data/wordpress
-	@sudo mkdir -p /home/llescure/data/mysql
+	@sudo mkdir -p /home/achane-l/data/wordpress
+	@sudo mkdir -p /home/achane-l/data/mysql
 	@docker-compose -f $(COMPOSE_FILE) --verbose up
 
 list:	
@@ -30,8 +30,8 @@ clean:
 	@-docker rmi -f `docker images -qa`
 	@-docker volume rm `docker volume ls -q`
 	@-docker network rm `docker network ls -q`
-	@sudo rm -rf /Users/narguss/Desktop/test/achane-l/data/wordpress
-	@sudo rm -rf /Users/narguss/Desktop/test/achane-l/data/database
+	@sudo rm -rf /home/achane-l/data/wordpress
+	@sudo rm -rf /home/achane-l/data/database
 	@docker system prune -a --force
 
 .PHONY: run up debug list list_volumes clean
