@@ -29,7 +29,6 @@ clean:
 	@-docker rm `docker ps -qa`
 	@-docker rmi -f `docker images -qa`
 	@-docker volume rm `docker volume ls -q`
-	@-docker network rm `docker network ls -q`
 	@sudo rm -rf /home/achane-l/data/wordpress
 	@sudo rm -rf /home/achane-l/data/database
 	@docker system prune -a --force
