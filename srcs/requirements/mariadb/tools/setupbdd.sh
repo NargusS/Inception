@@ -15,6 +15,7 @@ if [ ! -r "setupbdd.sql" ]; then
 CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE;
 CREATE USER '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';
 GRANT ALL PRIVILEGES on $MYSQL_DATABASE.* TO '$MYSQL_USER'@'%';
+ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD';
 FLUSH PRIVILEGES;
 END
     # Start the MariaDB service
@@ -22,7 +23,6 @@ END
     # Execute the SQL script using the mysql command
     mysql < setupbdd.sql
     # Change the root password to $MYSQL_ROOT_PASSWORD
-    mysql -u root -p"$MYSQL_ROOT_PASSWORD" -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '$MYSQL_ROOT_PASSWORD';"
 fi
 # Start the MariaDB daemon with the data directory set to /var/lib/mysql
 /usr/bin/mysqld_safe --datadir=/var/lib/mysql
