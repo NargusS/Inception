@@ -10,4 +10,4 @@ RUN     openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout /etc/ssl/pri
 
 COPY	./conf/nginx.conf /etc/nginx/conf.d
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
