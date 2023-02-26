@@ -17,6 +17,7 @@ else
 	sed -i "s/DATABASE_NAME/$WORDPRESS_DB_NAME/" /var/www/html/wordpress/wp-config.php
 	sed -i "s/DATABASE_HOST/$WORDPRESS_DB_HOST/" /var/www/html/wordpress/wp-config.php
 	wp core install --path=/var/www/html/wordpress/ --url=https://localhost --title=Inception --admin_user=$WORDPRESS_USER_LOGIN --admin_password=$WORDPRESS_USER_PASSWORD --admin_email=$WORDPRESS_USER_EMAIL --skip-email  --allow-root
+	wp user create $CORRECTOR_LOGIN $CORRECTOR_EMAIL --role=subscriber --user_pass=$CORRECTOR_PASSWORD --allow-root --path=wordpress
 fi
 
 exec "$@"
